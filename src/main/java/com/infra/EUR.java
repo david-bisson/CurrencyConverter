@@ -1,3 +1,7 @@
+package com.infra;
+
+import com.infra.Coin;
+
 import java.io.Serializable;
 
 public class EUR extends Coin implements Serializable {
@@ -13,6 +17,6 @@ public class EUR extends Coin implements Serializable {
     @Override
     public double calculate(double value) {
         input = value;
-        return input * getValue();
+        return input / getValue();
     }
 }

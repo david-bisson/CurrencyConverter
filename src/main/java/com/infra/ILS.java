@@ -1,3 +1,7 @@
+package com.infra;
+
+import com.infra.Coin;
+
 import java.io.Serializable;
 
 public class ILS extends Coin implements Serializable {

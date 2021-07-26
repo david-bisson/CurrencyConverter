@@ -1,3 +1,8 @@
+package com.infra;
+
+import com.infra.Coin;
+import com.infra.Coins;
+
 public class CoinFactory {
 
     public static Coin getCoinInstance(Coins coin) {
