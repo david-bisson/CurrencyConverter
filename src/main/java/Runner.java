@@ -2,6 +2,8 @@ import com.infra.Coin;
 import com.infra.CoinFactory;
 import com.infra.Coins;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -36,8 +38,8 @@ public class Runner {
                     Coin usdValue = CoinFactory.getCoinInstance(Coins.ILS);
                     double value1 = usdValue.calculate(input1);
                     System.out.println(input1 + " Dollar/s are " +value1+" Shekels");
-                    results.add(input1 + " Dollar/s are " +value1+" Shekels");
-                    WriteToLog.getTextAndWriteToLog(input1 + " Dollar/s are " +value1+" Shekels");
+                    results.add(value1+", USD to ILS");
+                    WriteToLog.getTextAndWriteToLog(value1+", USD to ILS");
 
                     break;
                 case 2:
@@ -48,8 +50,8 @@ public class Runner {
                     Coin ilsValue = CoinFactory.getCoinInstance(Coins.USD);
                     double value = ilsValue.calculate(input);
                     System.out.println(input + " Shekels are " +value+" Dollar/s");
-                    results.add(input + " Shekels are " +value+" Dollar/s");
-                    WriteToLog.getTextAndWriteToLog(input + " Shekels are " +value+" Dollar/s");
+                    results.add(value+", ILS to USD");
+                    WriteToLog.getTextAndWriteToLog(value+", ILS to USD");
                     break;
                 case 3:
                     coinFactory.getCoinInstance(Coins.EUR);
@@ -59,8 +61,8 @@ public class Runner {
                     Coin eurValue = CoinFactory.getCoinInstance(Coins.EUR);
                     double value2 = eurValue.calculate(input2);
                     System.out.println(input2 + " Shekels are " +value2+" Dollar/s");
-                    results.add(input2 + " Shekels are " +value2+" EUROS");
-                    WriteToLog.getTextAndWriteToLog(input2 + " Shekels are " +value2+" EUROS");
+                    results.add(value2+", ILS to EUR");
+                    WriteToLog.getTextAndWriteToLog(value2+", ILS to EUR");
                     break;
                 default:
                     System.out.println("Invalid Choice, please start over");
@@ -78,6 +80,7 @@ public class Runner {
                     for (String result : results) {
                         System.out.println(results);
                     }
+                    openFile();
                     break;
                 default:
 
@@ -86,5 +89,24 @@ public class Runner {
 
             }
 
+    }
+    static void openFile(){
+        try
+        {
+//constructor of file class having file as argument
+            File file = new File("src/main/resources/results.txt");
+            if(!Desktop.isDesktopSupported())//check if Desktop is supported by Platform or not
+            {
+                System.out.println("not supported");
+                return;
+            }
+            Desktop desktop = Desktop.getDesktop();
+            if(file.exists())         //checks file exists or not
+                desktop.open(file);              //opens the specified file
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }
