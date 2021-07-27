@@ -1,4 +1,6 @@
-public abstract class Coin implements ICalcualte {
+package calculator;
+
+public abstract class Coin implements Calculate {
 
     public abstract double getValue();
 
