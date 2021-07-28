@@ -1,3 +1,5 @@
+package calculator;
+
 import java.io.Serializable;
 
 public class EUR extends Coin implements Serializable {
