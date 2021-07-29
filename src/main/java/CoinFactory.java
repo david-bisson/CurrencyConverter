@@ -1,11 +1,10 @@
-package calculator;
-
 public class CoinFactory {
 
-    public static Coin getCoinInstance(Coins coins) {
+    public static Coin getCoinInstance(Coins coin) {
 
 
-        switch (coins) {
+        switch (coin) {
+
             case ILS:
                 return new ILS();
             case USD:
